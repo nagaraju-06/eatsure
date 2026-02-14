@@ -11,7 +11,12 @@ import com.alpha.eatsure.restaurant.dto.RestaurantRequestDto;
 @Service
 public class RestaurantService {
 
-    @Autowired
+    public RestaurantService() {
+		super();
+		
+	}
+
+	@Autowired
     private RestaurantRepository restaurantRepository;
 
     public void registerRestaurant(RestaurantRequestDto dto) {
