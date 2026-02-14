@@ -2,6 +2,8 @@ package com.alpha.eatsure.entity;
 
 import java.util.List;
 
+import com.alpha.eatsure.repository.DeliveryPatner;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
