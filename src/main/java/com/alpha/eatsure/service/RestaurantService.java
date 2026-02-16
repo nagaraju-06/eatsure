@@ -3,38 +3,43 @@ package com.alpha.eatsure.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.alpha.eatsure.dto.RestaurantRequestDto;
+import com.alpha.eatsure.entity.Address;
 import com.alpha.eatsure.entity.Restaurant;
+import com.alpha.eatsure.repository.AddressRepo;
 import com.alpha.eatsure.repository.RestaurantRepository;
-import com.alpha.eatsure.restaurant.dto.RestaurantRequestDto;
-//import com.alpha.eatsure.restaurant.dto.RestaurantResponseDto;
 
 @Service
 public class RestaurantService {
 
-    public RestaurantService() {
-		super();
-		
-	}
-
-	@Autowired
+    @Autowired
     private RestaurantRepository restaurantRepository;
 
-    public void registerRestaurant(RestaurantRequestDto dto) {
+    @Autowired
+    private AddressRepo addressRepository;
 
-        // DTO → Entity
+    public Restaurant registerRestaurant(RestaurantRequestDto dto) {
+
         Restaurant restaurant = new Restaurant();
+
         restaurant.setName(dto.getName());
-        restaurant.setMobile(dto.getMobile());
+        restaurant.setMobile(Long.parseLong(dto.getMobile()));
         restaurant.setEmail(dto.getEmail());
         restaurant.setDescription(dto.getDescription());
         restaurant.setPackagingFee(dto.getPackagingFee());
         restaurant.setType(dto.getType());
 
-        // Save to database
-        Restaurant savedRestaurant = restaurantRepository.save(restaurant);
-        
-        System.out.println(savedRestaurant);
-      
+        restaurant.setOpen(true);
+        restaurant.setRating(0.0);
+
+        // Address mapping
+        Address address = new Address();
+        address.setLatitude(dto.getLatitude());
+        address.setLongitude(dto.getLongitude());
+
+        addressRepository.save(address);
+        restaurant.setAddress(address);
+
+        return restaurantRepository.save(restaurant);
     }
 }
-
