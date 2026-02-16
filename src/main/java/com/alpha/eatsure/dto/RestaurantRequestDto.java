@@ -1,4 +1,4 @@
-package com.alpha.eatsure.restaurant.dto;
+package com.alpha.eatsure.dto;
 
 public class RestaurantRequestDto {
 

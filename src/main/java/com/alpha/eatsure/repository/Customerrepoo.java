@@ -7,5 +7,5 @@ import com.alpha.eatsure.entity.Customer;
 
 @Repository
 public interface Customerrepoo extends JpaRepository<Customer, Integer> {
-
+	boolean existsByMail(String mail);
 }
