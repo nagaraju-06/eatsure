@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import com.alpha.eatsure.entity.Restaurant;
 
 @Repository
-public interface RestaurantRepository extends JpaRepository<Restaurant, Long> {
+public interface RestaurantRepository extends JpaRepository<Restaurant, Integer> {
 }

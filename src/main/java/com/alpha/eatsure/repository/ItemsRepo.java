@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.alpha.eatsure.entity.Items;
 
 @Repository
-public interface Itemsrepoo extends JpaRepository<Items, Integer> {
+public interface ItemsRepo extends JpaRepository<Items, Integer> {
 
 }

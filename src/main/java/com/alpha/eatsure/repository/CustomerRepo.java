@@ -3,7 +3,9 @@ package com.alpha.eatsure.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-@Repository
-public interface Payment extends JpaRepository<Payment, Integer>{
+import com.alpha.eatsure.entity.Customer;
 
+@Repository
+public interface CustomerRepo extends JpaRepository<Customer, Integer> {
+	
 }

@@ -1,17 +1,22 @@
 package com.alpha.eatsure.entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 @Entity
-public class DeliveyPatner {
+public class DeliveryPartner {
 	@Id
-private int id;
+	 @GeneratedValue(strategy = GenerationType.AUTO)
+private Integer id;
 private String name;
 private long mob;
 private String mail;
 private double rating;
-private String address;
+@ManyToOne
+private Address address;
 private String disable;
 private String vechile;
 public int getId() {
@@ -44,10 +49,10 @@ public double getRating() {
 public void setRating(double rating) {
 	this.rating = rating;
 }
-public String getAddress() {
+public Address getAddress() {
 	return address;
 }
-public void setAddress(String address) {
+public void setAddress(Address address) {
 	this.address = address;
 }
 public String getDisable() {
@@ -62,7 +67,7 @@ public String getVechile() {
 public void setVechile(String vechile) {
 	this.vechile = vechile;
 }
-public DeliveyPatner(int id, String name, long mob, String mail, double rating, String address, String disable,
+public DeliveryPartner(int id, String name, long mob, String mail, double rating, Address address, String disable,
 		String vechile) {
 	super();
 	this.id = id;
@@ -74,7 +79,7 @@ public DeliveyPatner(int id, String name, long mob, String mail, double rating, 
 	this.disable = disable;
 	this.vechile = vechile;
 }
-public DeliveyPatner() {
+public DeliveryPartner() {
 	super();
 }
 @Override
@@ -82,6 +87,7 @@ public String toString() {
 	return "DeliveyPatner [id=" + id + ", name=" + name + ", mob=" + mob + ", mail=" + mail + ", rating=" + rating
 			+ ", address=" + address + ", disable=" + disable + ", vechile=" + vechile + "]";
 }
+
 
 
 

@@ -1,110 +1,101 @@
 package com.alpha.eatsure.entity;
 
-import java.util.Arrays;
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Lob;
+import jakarta.persistence.*;
 
 @Entity
 public class Items {
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Id
-	private int id;
-	private String name;
-	private String descrption;
-	private double price;
-	private String unit;
-	private String type;
-	private boolean availability;
-	public double rating;
-	@Lob
-	private byte[] image;
-	   private int numberOfServes;
-	   public int getId() {
-		   return id;
-	   }
-	   public void setId(int id) {
-		   this.id = id;
-	   }
-	   public String getName() {
-		   return name;
-	   }
-	   public void setName(String name) {
-		   this.name = name;
-	   }
-	   public String getDescrption() {
-		   return descrption;
-	   }
-	   public void setDescrption(String descrption) {
-		   this.descrption = descrption;
-	   }
-	   public double getPrice() {
-		   return price;
-	   }
-	   public void setPrice(double price) {
-		   this.price = price;
-	   }
-	   public String getUnit() {
-		   return unit;
-	   }
-	   public void setUnit(String unit) {
-		   this.unit = unit;
-	   }
-	   public String getType() {
-		   return type;
-	   }
-	   public void setType(String type) {
-		   this.type = type;
-	   }
-	   public boolean isAvailability() {
-		   return availability;
-	   }
-	   public void setAvailability(boolean availability) {
-		   this.availability = availability;
-	   }
-	   public double getRating() {
-		   return rating;
-	   }
-	   public void setRating(double rating) {
-		   this.rating = rating;
-	   }
-	   public byte[] getImage() {
-		   return image;
-	   }
-	   public void setImage(byte[] image) {
-		   this.image = image;
-	   }
-	   public int getNumberOfServes() {
-		   return numberOfServes;
-	   }
-	   public void setNumberOfServes(int numberOfServes) {
-		   this.numberOfServes = numberOfServes;
-	   }
-	   public Items(int id, String name, String descrption, double price, String unit, String type, boolean availability,
-			double rating, byte[] image, int numberOfServes) {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
+
+    private String name;
+    private Double price;
+    private String description;
+    private String type;
+    private String Availability;
+    private double Rating;
+    private String image;
+    private int Noofservices;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public Double getPrice() {
+		return price;
+	}
+	public void setPrice(Double price) {
+		this.price = price;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+	public String getAvailability() {
+		return Availability;
+	}
+	public void setAvailability(String availability) {
+		Availability = availability;
+	}
+	public double getRating() {
+		return Rating;
+	}
+	public void setRating(double rating) {
+		Rating = rating;
+	}
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
+	}
+	public int getNoofservices() {
+		return Noofservices;
+	}
+	public void setNoofservices(int noofservices) {
+		Noofservices = noofservices;
+	}
+	public Items(int id, String name, Double price, String description, String type, String availability,
+			double rating, String image, int noofservices) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.descrption = descrption;
 		this.price = price;
-		this.unit = unit;
+		this.description = description;
 		this.type = type;
-		this.availability = availability;
-		this.rating = rating;
+		Availability = availability;
+		Rating = rating;
 		this.image = image;
-		this.numberOfServes = numberOfServes;
-	   }
-	   public Items() {
+		Noofservices = noofservices;
+	}
+	public Items() {
 		super();
-	   }
-	   @Override
-	   public String toString() {
-		return "Items [id=" + id + ", name=" + name + ", descrption=" + descrption + ", price=" + price + ", unit="
-				+ unit + ", type=" + type + ", availability=" + availability + ", rating=" + rating + ", image="
-				+ Arrays.toString(image) + ", numberOfServes=" + numberOfServes + "]";
-	   }
-	   
+	}
+	@Override
+	public String toString() {
+		return "Items [id=" + id + ", name=" + name + ", price=" + price + ", description=" + description + ", type="
+				+ type + ", Availability=" + Availability + ", Rating=" + Rating + ", image=" + image
+				+ ", Noofservices=" + Noofservices + "]";
+	}
+    
+
+   
+
+   
 }

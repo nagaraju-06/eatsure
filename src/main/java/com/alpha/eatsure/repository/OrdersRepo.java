@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.alpha.eatsure.entity.Orders;
 
 @Repository
-public interface Ordersrepoo extends JpaRepository<Orders, Integer> {
+public interface OrdersRepo extends JpaRepository<Orders, Integer> {
 
 }
