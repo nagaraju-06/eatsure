@@ -8,7 +8,7 @@ import jakarta.persistence.OneToOne;
 @Entity
 public class Payment {
 	@Id
-private int id;
+private Integer id;
 	private long amount;
 	private String type;
 	private String status;

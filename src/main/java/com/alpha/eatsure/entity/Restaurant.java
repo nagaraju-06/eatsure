@@ -9,7 +9,7 @@ public class Restaurant {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Integer id;
 
     private String name;
     private Long mobile;
@@ -32,10 +32,10 @@ public class Restaurant {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "restaurant_id")
     private List<Orders> orders;
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getName() {
@@ -104,7 +104,7 @@ public class Restaurant {
 	public void setOrders(List<Orders> orders) {
 		this.orders = orders;
 	}
-	public Restaurant(int id, String name, Long mobile, String email, Address address, boolean open, Double rating,
+	public Restaurant(Integer id, String name, Long mobile, String email, Address address, boolean open, Double rating,
 			String description, Double packagingFee, String type, List<Items> menuItems, List<Orders> orders) {
 		super();
 		this.id = id;

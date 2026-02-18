@@ -10,7 +10,7 @@ import jakarta.persistence.ManyToOne;
 public class DeliveryPartner {
 	@Id
 	 @GeneratedValue(strategy = GenerationType.AUTO)
-private int id;
+private Integer id;
 private String name;
 private long mob;
 private String mail;
