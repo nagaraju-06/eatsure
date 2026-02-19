@@ -23,8 +23,9 @@ public class Address {
 	private String area;
 	private String district;
 	
+	
 	 private String city;
-	 private int pincode;
+	 private String pincode;
 	 private String state;
 	 private String country;
 	 private String street;
@@ -82,10 +83,10 @@ public class Address {
 	  public void setCity(String city) {
 		  this.city = city;
 	  }
-	  public int getPincode() {
+	  public String  getPincode() {
 		  return pincode;
 	  }
-	  public void setPincode(int pincode) {
+	  public void setPincode(String pincode) {
 		  this.pincode = pincode;
 	  }
 	  public String getState() {
@@ -139,7 +140,7 @@ public class Address {
 				+ customer + "]";
 	  }
 	  public Address(Integer id, double latitude, double longitude, String flatnumber, String floor, String area,
-			String district, String city, int pincode, String state, String country, String street, String landmark,
+			String district, String city, String pincode, String state, String country, String street, String landmark,
 			String adresstype, Boolean isDefault, Customer customer) {
 		super();
 		this.id = id;

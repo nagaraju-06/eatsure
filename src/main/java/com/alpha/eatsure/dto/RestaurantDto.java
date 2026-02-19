@@ -5,11 +5,11 @@ package com.alpha.eatsure.dto;
 public class RestaurantDto{
 	
 	    private String name;
-	    private String phone;
+	    private Long phone;
 	    private String email;
 	    private LocationCordinates cordinates;
 	    private String description;
-	    private int packagefees;
+	    private Double packagefees;
 	   
 		private String type;
 
@@ -22,12 +22,12 @@ public class RestaurantDto{
 			this.name = name;
 		}
 
-		public String getPhone() {
+		public Long getPhone() {
 			return phone;
 		}
 
 
-		public void setPhone(String phone) {
+		public void setPhone(Long phone) {
 			this.phone = phone;
 		}
 
@@ -56,12 +56,12 @@ public class RestaurantDto{
 			this.description = description;
 		}
 
-		public int getPackagefees() {
+		public Double getPackagefees() {
 			return packagefees;
 		}
 
 
-		public void setPackagefees(int packagefees) {
+		public void setPackagefees(Double packagefees) {
 			this.packagefees = packagefees;
 		}
 
@@ -75,8 +75,8 @@ public class RestaurantDto{
 		}
 
 
-public RestaurantDto(String name, String phone, String email, LocationCordinates cordinates, String description,
-				int packagefees, String type) {
+public RestaurantDto(String name, Long phone, String email, LocationCordinates cordinates, String description,
+		Double packagefees, String type) {
 			super();
 			this.name = name;
 			this.phone = phone;

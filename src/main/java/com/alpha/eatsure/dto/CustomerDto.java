@@ -4,10 +4,10 @@ package com.alpha.eatsure.dto;
 
 public class CustomerDto {
 	   private String name;
-	   private String phone;
+	   private Long phone;
 	   private String email;
 	   private String gender;
-	   public CustomerDto(String name, String phone, String email, String gender) {
+	   public CustomerDto(String name, Long phone, String email, String gender) {
 		super();
 		this.name = name;
 		this.phone = phone;
@@ -24,10 +24,10 @@ public class CustomerDto {
 	   public void setName(String name) {
 		   this.name = name;
 	   }
-	   public String getPhone() {
+	   public Long getPhone() {
 		   return phone;
 	   }
-	   public void setPhone(String phone) {
+	   public void setPhone(Long phone) {
 		   this.phone = phone;
 	   }
 	   public String getEmail() {

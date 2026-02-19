@@ -8,5 +8,7 @@ import com.alpha.eatsure.entity.DeliveryPartner;
 @Repository
 public interface DeliverypartnerRepo extends JpaRepository<DeliveryPartner, Integer>{
 		
+public void deleteByphone(Long phone);
 
+public DeliveryPartner findByphone(Long phone);
 }
