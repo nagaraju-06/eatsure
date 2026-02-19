@@ -12,7 +12,7 @@ public class DeliveryPartner {
 	 @GeneratedValue(strategy = GenerationType.AUTO)
 private Integer id;
 private String name;
-private long mob;
+private long phone;
 private String mail;
 private double rating;
 @ManyToOne
@@ -31,11 +31,11 @@ public String getName() {
 public void setName(String name) {
 	this.name = name;
 }
-public long getMob() {
-	return mob;
+public long getphone() {
+	return phone;
 }
-public void setMob(long mob) {
-	this.mob = mob;
+public void setphone(long phone) {
+	this.phone = phone;
 }
 public String getMail() {
 	return mail;
@@ -67,12 +67,12 @@ public String getVechile() {
 public void setVechile(String vechile) {
 	this.vechile = vechile;
 }
-public DeliveryPartner(int id, String name, long mob, String mail, double rating, Address address, String disable,
+public DeliveryPartner(int id, String name, long phone, String mail, double rating, Address address, String disable,
 		String vechile) {
 	super();
 	this.id = id;
 	this.name = name;
-	this.mob = mob;
+	this.phone = phone;
 	this.mail = mail;
 	this.rating = rating;
 	this.address = address;
@@ -84,7 +84,7 @@ public DeliveryPartner() {
 }
 @Override
 public String toString() {
-	return "DeliveyPatner [id=" + id + ", name=" + name + ", mob=" + mob + ", mail=" + mail + ", rating=" + rating
+	return "DeliveyPatner [id=" + id + ", name=" + name + ", phone=" + phone + ", mail=" + mail + ", rating=" + rating
 			+ ", address=" + address + ", disable=" + disable + ", vechile=" + vechile + "]";
 }
 

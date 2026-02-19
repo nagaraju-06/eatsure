@@ -5,7 +5,7 @@ package com.alpha.eatsure.dto;
 public class DeliveryPartnerDto {
 	
 	 private String name;
-	 private String phone;
+	 private Long phone;
 	 private String email;
 	 private String vehicleno;
 	 public String getName() {
@@ -14,10 +14,10 @@ public class DeliveryPartnerDto {
 	 public void setName(String name) {
 		 this.name = name;
 	 }
-	 public String getPhone() {
+	 public Long getPhone() {
 		 return phone;
 	 }
-	 public void setPhone(String phone) {
+	 public void setPhone(Long phone) {
 		 this.phone = phone;
 	 }
 	 public String getEmail() {
@@ -32,7 +32,7 @@ public class DeliveryPartnerDto {
 	 public void setVehicleno(String vehicleno) {
 		 this.vehicleno = vehicleno;
 	 }
-	 public DeliveryPartnerDto(String name, String phone, String email, String vehicleno) {
+	 public DeliveryPartnerDto(String name, Long phone, String email, String vehicleno) {
 		super();
 		this.name = name;
 		this.phone = phone;

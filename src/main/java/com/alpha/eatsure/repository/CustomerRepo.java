@@ -7,5 +7,6 @@ import com.alpha.eatsure.entity.Customer;
 
 @Repository
 public interface CustomerRepo extends JpaRepository<Customer, Integer> {
-	
+	Customer finByphone(Long phone);
+	void deleteByphone(Long phone);
 }

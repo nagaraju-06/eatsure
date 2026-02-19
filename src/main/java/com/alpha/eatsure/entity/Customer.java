@@ -18,7 +18,7 @@ public class Customer {
 	    private Integer id;
 
 	    private String name;
-	    private long mobno;
+	    private long phone;
 	    private String gender;
 
 	    @Column(unique = true)
@@ -55,12 +55,12 @@ public class Customer {
 			this.name = name;
 		}
 
-		public long getMobno() {
-			return mobno;
+		public long getphone() {
+			return phone;
 		}
 
-		public void setMobno(long mobno) {
-			this.mobno = mobno;
+		public void setphone(long phone) {
+			this.phone = phone;
 		}
 
 		public String getGender() {
@@ -103,12 +103,12 @@ public class Customer {
 			this.items = items;
 		}
 
-		public Customer(int id, String name, long mobno, String gender, String mail, List<Address> address,
+		public Customer(int id, String name, long phone, String gender, String mail, List<Address> address,
 				List<Orders> orders, List<Items> items) {
 			super();
 			this.id = id;
 			this.name = name;
-			this.mobno = mobno;
+			this.phone = phone;
 			this.gender = gender;
 			this.mail = mail;
 			this.address = address;
@@ -122,7 +122,7 @@ public class Customer {
 
 		@Override
 		public String toString() {
-			return "Customer [id=" + id + ", name=" + name + ", mobno=" + mobno + ", gender=" + gender + ", mail="
+			return "Customer [id=" + id + ", name=" + name + ", mobno=" + phone + ", gender=" + gender + ", mail="
 					+ mail + ", address=" + address + ", orders=" + orders + ", items=" + items + "]";
 		}
 
