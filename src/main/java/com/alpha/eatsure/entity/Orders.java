@@ -2,12 +2,17 @@ package com.alpha.eatsure.entity;
 
 import java.util.List;
 
-import com.alpha.eatsure.repository.DeliveryPatner;
+import com.alpha.eatsure.repository.DeliveryPatnerRepository;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+
+import com.alpha.eatsure.entity.DeliveryPatner; 
 
 @Entity
 public class Orders {
@@ -17,16 +22,17 @@ public class Orders {
 	private String status;
 	private String resturtant;
 	private int cost;
-	List<Items>items;
+	@OneToMany
+	private List<Items>items;
 	private String pickupAddress;
 	private String delvieryaddress;
 	private int otp;
-	private DeliveryPatner delpat;
+	
 	@Override
 	public String toString() {
 		return "Orders [id=" + id + ", status=" + status + ", resturtant=" + resturtant + ", cost=" + cost + ", items="
 				+ items + ", pickupAddress=" + pickupAddress + ", delvieryaddress=" + delvieryaddress + ", otp=" + otp
-				+ ", delpat=" + delpat + "]";
+				+ "]";
 	}
 	public Orders() {
 		super();
@@ -42,7 +48,7 @@ public class Orders {
 		this.pickupAddress = pickupAddress;
 		this.delvieryaddress = delvieryaddress;
 		this.otp = otp;
-		this.delpat = delpat;
+		
 	}
 	public int getId() {
 		return id;
@@ -92,13 +98,5 @@ public class Orders {
 	public void setOtp(int otp) {
 		this.otp = otp;
 	}
-	public DeliveryPatner getDelpat() {
-		return delpat;
-	}
-	public void setDelpat(DeliveryPatner delpat) {
-		this.delpat = delpat;
-	}
 	
-	
-
 }

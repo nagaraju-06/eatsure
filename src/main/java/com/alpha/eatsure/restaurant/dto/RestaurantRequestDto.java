@@ -11,11 +11,11 @@ public class RestaurantRequestDto {
     private Double latitude;
     private Double longitude;
 
-    
+
     public RestaurantRequestDto() {
     }
 
-    
+
     public String getName() {
         return name;
     }

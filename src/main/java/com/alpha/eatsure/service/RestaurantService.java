@@ -13,7 +13,7 @@ public class RestaurantService {
 
     public RestaurantService() {
 		super();
-		
+
 	}
 
 	@Autowired
@@ -32,9 +32,9 @@ public class RestaurantService {
 
         // Save to database
         Restaurant savedRestaurant = restaurantRepository.save(restaurant);
-        
+
         System.out.println(savedRestaurant);
-      
+
     }
 }
 

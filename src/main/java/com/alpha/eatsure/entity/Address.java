@@ -18,10 +18,10 @@ public class Address {
 	 private String country;
 	 private String street;
 	 private String landmark;
-	 
-	 
-	 
-	 
+
+
+
+
 	 public Address() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -41,7 +41,7 @@ public class Address {
 		return "Address [id=" + id + ", city=" + city + ", pincode=" + pincode + ", state=" + state + ", country="
 				+ country + ", street=" + street + ", landmark=" + landmark + "]";
 	}
-	
+
 	 public int getId() {
 		 return id;
 	 }
@@ -84,7 +84,7 @@ public class Address {
 	 public void setLandmark(String landmark) {
 		 this.landmark = landmark;
 	 }
-	 
-	 
+
+
 }
 
