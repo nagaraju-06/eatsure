@@ -10,6 +10,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class Customer {
@@ -18,26 +19,22 @@ public class Customer {
 	    private int id;
 
 	    private String name;
+	     
+	    @Column(unique=true)
 	    private long mobno;
+	    @Column(unique=true)
+	    private String mailid;
+
 	    private String gender;
 
-	    @Column(unique = true)
-	    private String mail;
+	    @OneToOne(cascade = CascadeType.ALL)
+	    private Address address;
 
-	    // Customer → Multiple Addresses (Unidirectional)
-	    @OneToMany(cascade = CascadeType.ALL)
-	    @JoinColumn(name = "customer_id")
-	    private List<Address> address;
+	    @OneToMany( cascade = CascadeType.ALL)
+	    private List<Order> orders;
 
-	    // Customer → Orders
 	    @OneToMany(cascade = CascadeType.ALL)
-	    @JoinColumn(name = "customer_id")
-	    private List<Orders> orders;
-
-	    // Customer → Items (if cart/favorites)
-	    @OneToMany(cascade = CascadeType.ALL)
-	    @JoinColumn(name = "customer_id")
-	    private List<Items> items;
+	    private List<Items> cart;
 
 		public int getId() {
 			return id;
@@ -63,6 +60,14 @@ public class Customer {
 			this.mobno = mobno;
 		}
 
+		public String getMailid() {
+			return mailid;
+		}
+
+		public void setMailid(String mailid) {
+			this.mailid = mailid;
+		}
+
 		public String getGender() {
 			return gender;
 		}
@@ -71,49 +76,41 @@ public class Customer {
 			this.gender = gender;
 		}
 
-		public String getMail() {
-			return mail;
-		}
-
-		public void setMail(String mail) {
-			this.mail = mail;
-		}
-
-		public List<Address> getAddress() {
+		public Address getAddress() {
 			return address;
 		}
 
-		public void setAddress(List<Address> address) {
+		public void setAddress(Address address) {
 			this.address = address;
 		}
 
-		public List<Orders> getOrders() {
+		public List<Order> getOrders() {
 			return orders;
 		}
 
-		public void setOrders(List<Orders> orders) {
+		public void setOrders(List<Order> orders) {
 			this.orders = orders;
 		}
 
-		public List<Items> getItems() {
-			return items;
+		public List<Items> getCart() {
+			return cart;
 		}
 
-		public void setItems(List<Items> items) {
-			this.items = items;
+		public void setCart(List<Items> cart) {
+			this.cart = cart;
 		}
 
-		public Customer(int id, String name, long mobno, String gender, String mail, List<Address> address,
-				List<Orders> orders, List<Items> items) {
+		public Customer(int id, String name, long mobno, String mailid, String gender, Address address,
+				List<Order> orders, List<Items> cart) {
 			super();
 			this.id = id;
 			this.name = name;
 			this.mobno = mobno;
+			this.mailid = mailid;
 			this.gender = gender;
-			this.mail = mail;
 			this.address = address;
 			this.orders = orders;
-			this.items = items;
+			this.cart = cart;
 		}
 
 		public Customer() {
@@ -122,10 +119,10 @@ public class Customer {
 
 		@Override
 		public String toString() {
-			return "Customer [id=" + id + ", name=" + name + ", mobno=" + mobno + ", gender=" + gender + ", mail="
-					+ mail + ", address=" + address + ", orders=" + orders + ", items=" + items + "]";
+			return "Customer [id=" + id + ", name=" + name + ", mobno=" + mobno + ", mailid=" + mailid + ", gender="
+					+ gender + ", address=" + address + ", orders=" + orders + ", cart=" + cart + "]";
 		}
 
-	
-
+	 
+	   
 }

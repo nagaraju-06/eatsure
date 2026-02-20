@@ -8,94 +8,159 @@ public class Items {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-
+    
+    @Column(unique=true)
     private String name;
-    private Double price;
+
     private String description;
+
+    private double price;
+
+   
+    private String unit;
+
+   
     private String type;
-    private String Availability;
-    private double Rating;
+
+    
+    private String availability;
+
+    private double rating;
+
+    // image URL or path
     private String image;
-    private int Noofservices;
+
+ 
+    private int numberOfServes;
+
+
 	public int getId() {
 		return id;
 	}
+
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
+
 	public String getName() {
 		return name;
 	}
+
+
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Double getPrice() {
-		return price;
-	}
-	public void setPrice(Double price) {
-		this.price = price;
-	}
+
+
 	public String getDescription() {
 		return description;
 	}
+
+
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
+
+	public double getPrice() {
+		return price;
+	}
+
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+
+	public String getUnit() {
+		return unit;
+	}
+
+
+	public void setUnit(String unit) {
+		this.unit = unit;
+	}
+
+
 	public String getType() {
 		return type;
 	}
+
+
 	public void setType(String type) {
 		this.type = type;
 	}
+
+
 	public String getAvailability() {
-		return Availability;
+		return availability;
 	}
+
+
 	public void setAvailability(String availability) {
-		Availability = availability;
+		this.availability = availability;
 	}
+
+
 	public double getRating() {
-		return Rating;
+		return rating;
 	}
+
+
 	public void setRating(double rating) {
-		Rating = rating;
+		this.rating = rating;
 	}
+
+
 	public String getImage() {
 		return image;
 	}
+
+
 	public void setImage(String image) {
 		this.image = image;
 	}
-	public int getNoofservices() {
-		return Noofservices;
+
+
+	public int getNumberOfServes() {
+		return numberOfServes;
 	}
-	public void setNoofservices(int noofservices) {
-		Noofservices = noofservices;
+
+
+	public void setNumberOfServes(int numberOfServes) {
+		this.numberOfServes = numberOfServes;
 	}
-	public Items(int id, String name, Double price, String description, String type, String availability,
-			double rating, String image, int noofservices) {
+
+
+	public Items(int id, String name, String description, double price, String unit, String type, String availability,
+			double rating, String image, int numberOfServes) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.price = price;
 		this.description = description;
+		this.price = price;
+		this.unit = unit;
 		this.type = type;
-		Availability = availability;
-		Rating = rating;
+		this.availability = availability;
+		this.rating = rating;
 		this.image = image;
-		Noofservices = noofservices;
+		this.numberOfServes = numberOfServes;
 	}
+
+
 	public Items() {
 		super();
 	}
+
+
 	@Override
 	public String toString() {
-		return "Items [id=" + id + ", name=" + name + ", price=" + price + ", description=" + description + ", type="
-				+ type + ", Availability=" + Availability + ", Rating=" + Rating + ", image=" + image
-				+ ", Noofservices=" + Noofservices + "]";
+		return "Items [id=" + id + ", name=" + name + ", description=" + description + ", price=" + price + ", unit="
+				+ unit + ", type=" + type + ", availability=" + availability + ", rating=" + rating + ", image=" + image
+				+ ", numberOfServes=" + numberOfServes + "]";
 	}
     
-
-   
-
    
 }

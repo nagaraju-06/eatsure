@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.alpha.eatsure.dto.CustomerDTO;
+import com.alpha.eatsure.dto.CustomerReqDto;
 import com.alpha.eatsure.entity.Customer;
 import com.alpha.eatsure.repository.Customerrepoo;
 
@@ -14,23 +15,25 @@ public class CustomerService {
     @Autowired
     private Customerrepoo custrepoo;
 
-    public String registerCustomer(CustomerDTO dto) {
-
-        // Check email already exists
-        if (custrepoo.existsByMail(dto.getMail())) {
-            return "Email already registered";
-        }
-
-        // DTO → Entity conversion
+    public void adding(CustomerReqDto customerReqDto) {
         Customer customer = new Customer();
-        customer.setName(dto.getName());
-        customer.setMobno(dto.getMobno());
-        customer.setMail(dto.getMail());
-        customer.setGender(dto.getGender());
-
-        // Save customer
+        customer.setName(customerReqDto.getName());
+        customer.setMobno(customerReqDto.getMobno());
+        customer.setMailid(customerReqDto.getMailid());
+        customer.setGender(customerReqDto.getGender());
         custrepoo.save(customer);
+   }
 
-        return "Customer Registered Successfully";
-    }
+   public void deleteCustomer(long mobno) {
+      Customer c= Customerrepoo.findByMobno(mobno).orElse(null);
+      Customerrepoo.delete(c);
+
+   }
+
+   public Customer findCustomer(long mobno) {
+       return  Customerrepoo.findByMobno(mobno);
+
+
+
+   }
 }

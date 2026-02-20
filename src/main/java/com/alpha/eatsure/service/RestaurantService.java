@@ -1,7 +1,10 @@
 package com.alpha.eatsure.service;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import com.alpha.eatsure.dto.RestaurantRequestDto;
 import com.alpha.eatsure.entity.Address;
@@ -15,31 +18,31 @@ public class RestaurantService {
     @Autowired
     private RestaurantRepository restaurantRepository;
 
-    @Autowired
-    private AddressRepo addressRepository;
+	public void adding(RestaurantRequestDto restaurantReqDto) {
 
-    public Restaurant registerRestaurant(RestaurantRequestDto dto) {
+        Restaurant restaurant=new Restaurant();
+        restaurant.setName(restaurantReqDto.getName());
+        restaurant.setMobno(restaurantReqDto.getMobno());
+        restaurant.setMailid(restaurantReqDto.getMailid());
+        //error line
+//        restaurant.setAddress(restaurantReqDto.getLocationCordinate());
+        restaurant.setAddress(null);
 
-        Restaurant restaurant = new Restaurant();
 
-        restaurant.setName(dto.getName());
-        restaurant.setMobile(Long.parseLong(dto.getMobile()));
-        restaurant.setEmail(dto.getEmail());
-        restaurant.setDescription(dto.getDescription());
-        restaurant.setPackagingFee(dto.getPackagingFee());
-        restaurant.setType(dto.getType());
+        restaurant.setDescription(restaurantReqDto.getDescription());
+        restaurant.setPackagingFees(restaurantReqDto.getPackagingFees());
+        restaurant.setType(restaurantReqDto.getType());
 
-        restaurant.setOpen(true);
-        restaurant.setRating(0.0);
+        restaurantRepository.save(restaurant);
 
-        // Address mapping
-        Address address = new Address();
-        address.setLatitude(dto.getLatitude());
-        address.setLongitude(dto.getLongitude());
+    }
 
-        addressRepository.save(address);
-        restaurant.setAddress(address);
+    public void deleteRestaurant(long mobno) {
+          Restaurant r=  RestaurantRepository.findByMobno(mobno);
+          restaurantRepository.delete(r);
+    }
 
-        return restaurantRepository.save(restaurant);
+    public Restaurant findRestaurant(long mobno) {
+        return restaurantRepository.findByMobno(mobno);
     }
 }

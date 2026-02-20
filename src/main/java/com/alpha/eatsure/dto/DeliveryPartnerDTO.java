@@ -1,10 +1,10 @@
 package com.alpha.eatsure.dto;
 
-public class CustomerDTO {
+public class DeliveryPartnerDTO {
 	private String name;
 	private long mobno;
 	private String  mail;
-	private String gender;
+	private String VechileNo;
 	public String getName() {
 		return name;
 	}
@@ -23,15 +23,21 @@ public class CustomerDTO {
 	public void setMail(String mail) {
 		this.mail = mail;
 	}
-	public String getGender() {
-		return gender;
+	public String getVechileNo() {
+		return VechileNo;
 	}
-	public void setGender(String gender) {
-		this.gender = gender;
+	public void setVechileNo(String vechileNo) {
+		VechileNo = vechileNo;
 	}
-	public CustomerDTO() {
+	public DeliveryPartnerDTO(String name, long mobno, String mail, String vechileNo) {
+		super();
+		this.name = name;
+		this.mobno = mobno;
+		this.mail = mail;
+		VechileNo = vechileNo;
+	}
+	public DeliveryPartnerDTO() {
 		super();
 	}
-	
 
 }

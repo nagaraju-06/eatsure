@@ -1,93 +1,108 @@
 package com.alpha.eatsure.entity;
 
+import java.util.List;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class DeliveryPartner {
 	@Id
-	 @GeneratedValue(strategy = GenerationType.AUTO)
-private int id;
-private String name;
-private long mob;
-private String mail;
-private double rating;
-@ManyToOne
-private Address address;
-private String disable;
-private String vechile;
-public int getId() {
-	return id;
-}
-public void setId(int id) {
-	this.id = id;
-}
-public String getName() {
-	return name;
-}
-public void setName(String name) {
-	this.name = name;
-}
-public long getMob() {
-	return mob;
-}
-public void setMob(long mob) {
-	this.mob = mob;
-}
-public String getMail() {
-	return mail;
-}
-public void setMail(String mail) {
-	this.mail = mail;
-}
-public double getRating() {
-	return rating;
-}
-public void setRating(double rating) {
-	this.rating = rating;
-}
-public Address getAddress() {
-	return address;
-}
-public void setAddress(Address address) {
-	this.address = address;
-}
-public String getDisable() {
-	return disable;
-}
-public void setDisable(String disable) {
-	this.disable = disable;
-}
-public String getVechile() {
-	return vechile;
-}
-public void setVechile(String vechile) {
-	this.vechile = vechile;
-}
-public DeliveryPartner(int id, String name, long mob, String mail, double rating, Address address, String disable,
-		String vechile) {
-	super();
-	this.id = id;
-	this.name = name;
-	this.mob = mob;
-	this.mail = mail;
-	this.rating = rating;
-	this.address = address;
-	this.disable = disable;
-	this.vechile = vechile;
-}
-public DeliveryPartner() {
-	super();
-}
-@Override
-public String toString() {
-	return "DeliveyPatner [id=" + id + ", name=" + name + ", mob=" + mob + ", mail=" + mail + ", rating=" + rating
-			+ ", address=" + address + ", disable=" + disable + ", vechile=" + vechile + "]";
-}
-
+	@GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
+    private String name;
+    @Column(unique=true)
+    private String mobno;
+    @Column(unique=true)
+    private String email;
+    private double rating;
+    private String address;
+    @OneToOne
+    private List<Order> orders;
+    @Column(unique=true)
+    private String vehicleNo;
+    private String status;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getMobno() {
+		return mobno;
+	}
+	public void setMobno(String mobno) {
+		this.mobno = mobno;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public double getRating() {
+		return rating;
+	}
+	public void setRating(double rating) {
+		this.rating = rating;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public List<Order> getOrders() {
+		return orders;
+	}
+	public void setOrders(List<Order> orders) {
+		this.orders = orders;
+	}
+	public String getVehicleNo() {
+		return vehicleNo;
+	}
+	public void setVehicleNo(String vehicleNo) {
+		this.vehicleNo = vehicleNo;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	public DeliveryPartner(int id, String name, String mobno, String email, double rating, String address,
+			List<Order> orders, String vehicleNo, String status) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.mobno = mobno;
+		this.email = email;
+		this.rating = rating;
+		this.address = address;
+		this.orders = orders;
+		this.vehicleNo = vehicleNo;
+		this.status = status;
+	}
+	public DeliveryPartner() {
+		super();
+	}
+	@Override
+	public String toString() {
+		return "DeliveryPartner [id=" + id + ", name=" + name + ", mobno=" + mobno + ", email=" + email + ", rating="
+				+ rating + ", address=" + address + ", orders=" + orders + ", vehicleNo=" + vehicleNo + ", status="
+				+ status + "]";
+	}
 
 
 
